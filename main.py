@@ -39,17 +39,7 @@ def run():
     driver.find_element(By.XPATH, f"//h2[contains(text(), '{txt}')]").click()
     print("Раскрыл категорию")
     wait()
-    # Ищем ту часть где нужная нам заявка
-    child = driver.find_element(By.XPATH, f"//div[contains(text(), '{num}')]")
-    print("Нашёл нужный пункт")
-    wait()
-    # Ищем родителя т.к. лайк находиться с названием под одним родителем
-    parent = child.find_element(By.XPATH, "..")
-    print("Нашёл родителя")
-    wait()
-    # Ищем лайк и херачим по нему
-    parent.find_element(By.XPATH, ".//i").click()
-    print("Лайкнул")
+    driver.execute_script("like(12301);")
     time.sleep(10)
 
 
